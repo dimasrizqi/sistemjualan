@@ -14,13 +14,13 @@ use Illuminate\Support\Facades\Route;
 */
 Route::resource('products','ProductController');
 
-
+Route::get('/produk/tambah', 'produk@tambah' )-> name('tambah-produk') ;
 // login
 Route::get('/login', 'otentikasi\OtentikasiController@index' )-> name('login') ;
 Route::post('/login', 'otentikasi\OtentikasiController@login') -> name('login');
 Route::get('/logout', 'otentikasi\OtentikasiController@logout') -> name('logout');
 //midleware otentikasi
-Route::group(['middleware' => 'auth'], function () {
+//Route::group(['middleware' => 'auth'], function () {
     
     Route::get('/lihatuser', 'otentikasi\OtentikasiController@lihatuser' )-> name('lihat-user') ;
     Route::get('/tambahuser', 'otentikasi\OtentikasiController@tambah' )-> name('tambah-user') ;
@@ -37,4 +37,4 @@ Route::group(['middleware' => 'auth'], function () {
     Route::resource('datapelanggan','datapelangganController');
     Route::delete('/userdel/{id}','datapelangganController@destroy')->name('userdel');
     Route::get('/reset/{id}','datapelangganController@resetpass')->name('resetpass');
-});
+//});
