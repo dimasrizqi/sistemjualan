@@ -85,6 +85,19 @@ services:
     networks:
       - app-network
 
+  myadmin:
+    image: phpmyadmin
+    container_name: myadmin
+    restart: always
+    tty: true
+    ports:
+      - "5554:80"
+    environment:
+      MYSQL_ROOT_PASSWORD: GRLJXBdS6V6zEtRDYFRRjwF6cm4hgWBr
+      PMA_HOST: mysql
+    networks:
+      - app-network
+
   redis:
     image: redis
     container_name: redis
