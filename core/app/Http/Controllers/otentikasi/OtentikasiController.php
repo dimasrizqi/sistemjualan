@@ -45,7 +45,7 @@ class OtentikasiController extends Controller
             array(
                 'name' => $request->name,
                 'email' => $request->email,
-                'grup' => $request->grup,
+                'level' => $request->level,
                 'password' => bcrypt('12345678'),
                 'remember_token' => $request->_token
             )
